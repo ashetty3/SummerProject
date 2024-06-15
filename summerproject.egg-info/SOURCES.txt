@@ -1,0 +1,8 @@
+README.md
+setup.py
+src/__init__.py
+summerproject.egg-info/PKG-INFO
+summerproject.egg-info/SOURCES.txt
+summerproject.egg-info/dependency_links.txt
+summerproject.egg-info/requires.txt
+summerproject.egg-info/top_level.txt
