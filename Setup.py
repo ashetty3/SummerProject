@@ -14,7 +14,7 @@ def get_requirements (file_path:str):
         
     return re_list
 
-
+# Triggered by code:  pip install -r "requirements.txt" in directory
 
 setup(
 name = 'summerproject',
