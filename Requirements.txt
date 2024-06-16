@@ -3,4 +3,5 @@ numpy
 seaborn
 ipykernel
 duckdb
+ibis-framework[duckdb,examples]
 -e .

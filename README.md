@@ -1,5 +1,11 @@
 
+# Work In Progress
 
+This project is still a work in progress. 
+
+Currently I am : 
+
+Exploring data sources that could be interesting to model. I've picked the treatment episodes on SAMHSA right now and I'm trying to make it work on DuckDB (exciting). 
 
 
 ## References for this Project 
@@ -7,4 +13,6 @@
 * DuckDB Setup: 
             * Tutorial:  https://motherduck.com/blog/duckdb-tutorial-for-beginners/
             * Documentation : https://duckdb.org/docs/api/python/overview.html
+* SAMHSA Data : https://www.samhsa.gov/data/data-we-collect/teds-treatment-episode-data-set
+
 
