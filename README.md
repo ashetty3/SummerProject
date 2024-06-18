@@ -13,6 +13,8 @@ Exploring data sources that could be interesting to model. I've picked the treat
 * DuckDB Setup: 
             * Tutorial:  https://motherduck.com/blog/duckdb-tutorial-for-beginners/
             * Documentation : https://duckdb.org/docs/api/python/overview.html
+            * Use SQL to access DuckDB in Jupyter Notebooks : https://duckdb.org/docs/guides/python/jupyter
+            
 * SAMHSA Data : https://www.samhsa.gov/data/data-we-collect/teds-treatment-episode-data-set
 
 
