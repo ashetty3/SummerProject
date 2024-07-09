@@ -17,10 +17,11 @@ def get_requirements (file_path:str):
 # Triggered by code:  pip install -r "requirements.txt" in directory
 
 setup(
-name = 'summerproject',
+name = 'llm_env', #env name
 author= 'Apshetty',
 author_email='apoorvagetseducated@gmail.com',
 packages= find_packages(),
 install_requires = get_requirements('Requirements.txt') #Fetch the required packages like pandas, seaborn etc from the txt
 )
 
+# Navigate to this folder after you create the env and write python setup.py install 

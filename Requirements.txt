@@ -2,6 +2,9 @@ pandas
 numpy
 seaborn
 ipykernel
+polars
+streamlit
+openai
 duckdb
 ibis-framework[duckdb,examples]
 -e .

@@ -6,3 +6,7 @@ Author-email: apoorvagetseducated@gmail.com
 Requires-Dist: pandas
 Requires-Dist: numpy
 Requires-Dist: seaborn
+Requires-Dist: ipykernel
+Requires-Dist: polars
+Requires-Dist: duckdb
+Requires-Dist: ibis-framework[duckdb,examples]
