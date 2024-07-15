@@ -125,12 +125,76 @@ SELECT
 FROM teds_a_raw_2015_2019;
 '''
 
+# SQL script to create and populate the DemographicValueLabelMapping table with auto-generated ID and date added
+
+create_mapping_table = '''
+
+CREATE SEQUENCE IF NOT EXISTS serial_map;
+
+CREATE TABLE IF NOT EXISTS DemographicValueLabelMapping (
+    id INTEGER DEFAULT NEXTVAL('serial_map') PRIMARY KEY, -- SERIAL OR AUTO_INCREMENT COULD WORK IN REAL SQL BUT NOT DUCKDB
+    value INT,
+    label VARCHAR,
+    tablename VARCHAR,
+    date_added DATE DEFAULT CURRENT_DATE
+);
+
+INSERT INTO DemographicValueLabelMapping (value, label, tablename) VALUES
+-- AGE
+(1, '12–14 years', 'AGE'),
+(2, '15–17 years', 'AGE'),
+(3, '18–20 years', 'AGE'),
+(4, '21–24 years', 'AGE'),
+(5, '25–29 years', 'AGE'),
+(6, '30–34 years', 'AGE'),
+(7, '35–39 years', 'AGE'),
+(8, '40–44 years', 'AGE'),
+(9, '45–49 years', 'AGE'),
+(10, '50–54 years', 'AGE'),
+(11, '55–64 years', 'AGE'),
+(12, '65 years and older', 'AGE'),
+
+-- GENDER
+(1, 'Male', 'GENDER'),
+(2, 'Female', 'GENDER'),
+(-9, 'Missing/unknown/not collected/invalid', 'GENDER'),
+
+-- RACE
+(1, 'Alaska Native (Aleut, Eskimo, Indian)', 'RACE'),
+(2, 'American Indian (other than Alaska Native)', 'RACE'),
+(3, 'Asian or Pacific Islander', 'RACE'),
+(4, 'Black or African American', 'RACE'),
+(5, 'White', 'RACE'),
+(6, 'Asian', 'RACE'),
+(7, 'Other single race', 'RACE'),
+(8, 'Two or more races', 'RACE'),
+(9, 'Native Hawaiian or Other Pacific Islander', 'RACE'),
+(-9, 'Missing/unknown/not collected/invalid', 'RACE'),
+
+-- ETHNIC
+(1, 'Puerto Rican', 'ETHNIC'),
+(2, 'Mexican', 'ETHNIC'),
+(3, 'Cuban or other specific Hispanic', 'ETHNIC'),
+(4, 'Not of Hispanic or Latino origin', 'ETHNIC'),
+(5, 'Hispanic or Latino, specific origin not specified', 'ETHNIC'),
+(-9, 'Missing/unknown/not collected/invalid', 'ETHNIC'),
+
+-- MARSTAT
+(1, 'Never married', 'MARSTAT'),
+(2, 'Now married', 'MARSTAT'),
+(3, 'Separated', 'MARSTAT'),
+(4, 'Divorced', 'MARSTAT'),
+(5, 'Widowed', 'MARSTAT'),
+(-9, 'Missing/unknown/not collected/invalid', 'MARSTAT');
+'''
+
 # Execute the queries
 dbcon.execute(create_demographics)
 dbcon.execute(create_employment_details)
 dbcon.execute(create_legal_info)
 dbcon.execute(create_substance_use_history)
 dbcon.execute(create_treatment_information)
+dbcon.execute(create_mapping_table)
 dbcon.close()
 
 
