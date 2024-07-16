@@ -131,7 +131,7 @@ create_mapping_table = '''
 
 CREATE SEQUENCE IF NOT EXISTS serial_map;
 
-CREATE TABLE IF NOT EXISTS DemographicValueLabelMapping (
+CREATE TABLE IF NOT EXISTS ValueLabelMapping (
     id INTEGER DEFAULT NEXTVAL('serial_map') PRIMARY KEY, -- SERIAL OR AUTO_INCREMENT COULD WORK IN REAL SQL BUT NOT DUCKDB
     value INT,
     label VARCHAR,
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS DemographicValueLabelMapping (
     date_added DATE DEFAULT CURRENT_DATE
 );
 
-INSERT INTO DemographicValueLabelMapping (value, label, tablename) VALUES
+INSERT INTO ValueLabelMapping (value, label, tablename) VALUES
 -- AGE
 (1, '12–14 years', 'AGE'),
 (2, '15–17 years', 'AGE'),
@@ -185,7 +185,33 @@ INSERT INTO DemographicValueLabelMapping (value, label, tablename) VALUES
 (3, 'Separated', 'MARSTAT'),
 (4, 'Divorced', 'MARSTAT'),
 (5, 'Widowed', 'MARSTAT'),
-(-9, 'Missing/unknown/not collected/invalid', 'MARSTAT');
+(-9, 'Missing/unknown/not collected/invalid', 'MARSTAT'),
+
+-- EMPLOY
+(1, 'Full-time', 'EMPLOY'),
+(2, 'Part-time', 'EMPLOY'),
+(3, 'Unemployed', 'EMPLOY'),
+(4, 'Not in labor force', 'EMPLOY'),
+(-9, 'Missing/unknown/not collected/invalid', 'EMPLOY'),
+
+-- DETNLF
+(1, 'Homemaker', 'DETNLF'),
+(2, 'Student', 'DETNLF'),
+(3, 'Retired, disabled', 'DETNLF'),
+(4, 'Resident of institution', 'DETNLF'),
+(5, 'Other', 'DETNLF'),
+(-9, 'Missing/unknown/not collected/invalid', 'DETNLF'),
+
+-- PREG
+(1, 'Yes', 'PREG'),
+(2, 'No', 'PREG'),
+(-9, 'Missing/unknown/not collected/invalid', 'PREG'),
+
+-- VET
+(1, 'Yes', 'VET'),
+(2, 'No', 'VET'),
+(-9, 'Missing/unknown/not collected/invalid', 'VET');
+
 '''
 
 # Execute the queries
